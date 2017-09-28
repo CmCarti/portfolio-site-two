@@ -5,6 +5,8 @@ import prismic from './prismic-data';
 import Loading from './loading';
 import Header from './components/header';
 import About from './components/about';
+import PortfolioHeader from './components/portfolio-header';
+import Posts from './components/posts';
 
 
 
@@ -28,14 +30,26 @@ class App extends Component {
 
   }
   
+
   render() {
     
     if(this.state.about === undefined && this.state.websites === undefined && this.state.apps === undefined) return(<Loading />)
+   
     return (
       <BrowserRouter>
         <div>
           <Header />
           <About data={this.state.about} />
+          <PortfolioHeader />
+          <Switch>
+            
+            <Route path="/apps" component={ (()=>{
+              return <Posts type="apps" data={this.state.apps} />
+            }) } />
+            <Route path="/websites" component={ (()=>{
+              return <Posts type="websites" data={this.state.websites} />
+            }) } />
+          </Switch>
         </div>
       </BrowserRouter>
     );
