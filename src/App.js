@@ -15,26 +15,29 @@ class App extends Component {
     super(props);
     this.state = {
       about: undefined,
+      aboutLoaded: false,
       websites: undefined,
-      apps: undefined
+      websitesLoaded: false,
+      apps: undefined,
+      appsLoaded: false
     }
   }
 
   componentDidMount(){
     // Get About data;
-    prismic(this, 'about', "about", 'single');
+    prismic(this, 'about','aboutLoaded', "about", 'single');
     // Get websites
-    prismic(this, 'websites', 'website', 'post');
+    prismic(this, 'websites','websitesLoaded', 'website', 'post');
     // Get Apps
-    prismic(this, 'apps', 'app', 'post');
+    prismic(this, 'apps', 'appsLoaded', 'app', 'post');
 
   }
-  
+
 
   render() {
-    
-    if(this.state.about === undefined && this.state.websites === undefined && this.state.apps === undefined) return(<Loading />)
-   
+
+    if(!this.state.aboutLoaded && !this.state.websitesLoaded && !this.state.appsLoaded ) return(<Loading />)
+
     return (
       <BrowserRouter>
         <div>
@@ -42,12 +45,12 @@ class App extends Component {
           <About data={this.state.about} />
           <PortfolioHeader />
           <Switch>
-            
-            <Route path="/apps" component={ (()=>{
-              return <Posts type="apps" data={this.state.apps} />
-            }) } />
+
             <Route path="/websites" component={ (()=>{
               return <Posts type="websites" data={this.state.websites} />
+            }) } />
+            <Route path="/" component={ (()=>{
+              return <Posts type="apps" data={this.state.apps} />
             }) } />
           </Switch>
         </div>
