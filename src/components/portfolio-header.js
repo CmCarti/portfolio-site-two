@@ -1,22 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+export default (props) => {
+
+   let websitesClasses = 'portfolio-link'
+   let appsClasses = 'portfolio-link';
+   if(props.path === '/' || props.path ==='/apps'){
+       appsClasses ='portfolio-link active';
+   } else {
+       websitesClasses = 'portfolio-link active';
+   }
+
+
     return (
         <div className="portfolio-header">
             <div className="container">
-                <div className="row">
-                    <Link 
+
+                    <Link
                         to="/apps"
-                        className="portfolio-link active">
+                        className={appsClasses}>
                             Apps
                     </Link>
-                    <Link 
+                    <Link
                         to="/websites"
-                        className="portfolio-link">
+                        className={websitesClasses}>
                             Websites
                     </Link>
-                </div>
+
             </div>
         </div>
     )

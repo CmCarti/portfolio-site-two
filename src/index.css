@@ -1,5 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600|Work+Sans:400,600,700');
+html {
+  font-size: 14px;
+}
 body {
+  background: #f1f1f1;
+  color: #515151;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  position: relative;
+  padding-top: 20%;
+}
+body *{
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+h1 {
+  font-family: 'Source Serif Pro', serif;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #212121;
+}
+h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+p {
+  margin-bottom: 1rem;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+img {
+  display: block;
+}
+
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+@media only screen and (min-width : 768px){
+  html {
+    font-size: 16px;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-bottom: 3rem;
+  height: 100%;
+  width: 100%;
+
+  background: white;
+
+}
+.card-body {
+  padding: 2rem;
+  flex-basis: 65%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card-img {
+
+  overflow: hidden;
+  width: 35%;
+  flex-basis: 35%;
+  position: relative;
+  border-radius: 2px 0 0 2px;
+}
+
+.card-img img {
+
+  /* max-width : 100% */
+  display: block;
+  position: absolute;
+  width: auto;
+  width: 110%;
+  top: 0;
+  left:0;
+
+}
+
+.svg {
+  display: none;
+  width: 60px;
+  height: 60px;
+  margin: 1rem auto 0;
+}
+@media only screen and (min-width: 992px) {
+  .card-img img {
+
+  }
+}
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.tech {
+  border: solid 2px #707ED6;
+  margin-bottom: .7rem;
+  padding: .25rem;
+  border-radius: 2px;
+  margin-right: .7rem;
+
+}
+.card-action {
+  margin-top: auto;
+}
+
+.btn  {
+  color: #f1f1f1;
+  border-radius: 2px;
+  padding: 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  text-decoration: none;
+  display: inline-block;
+  background: #707ED6;
+  margin-right: 1rem;
+  font-weight: 600;
+  transition: ease-out .2s;
+}
+.btn:visited,.btn:hover,.btn:active,.btn:focus {
+  color: #f1f1f1;
+}
+.btn:hover {
+  box-shadow: 0 0 0 rgba(0,0,0, 0);
+  transform: translateY(2px);
+}
+.about {
+
+  position: relative;
+
+  padding-bottom: 10rem;
+}
+.card p {
+  margin-bottom: 2rem;
+}
+.websites {
+
+  position: relative;
+  padding: 2rem;
+  padding-top: 5rem;
+  /* background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); */
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+  z-index: 10;
+  height: 100%;
+}
+.websites:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: skewY(-1.6deg);
+  transform-origin: bottom left;
+  z-index: 0;
+  /* background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); */
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+  position: absolute;
+
+}
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-link {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  margin-right: 1rem;
+
+}
+.portfolio-link.active {
+  text-decoration: underline;
+}
+@media only screen and (max-width : 992px) {
+  .card {
+    flex-direction: column-reverse;
+  }
+  .svg {
+    display: block;
+  }
+  .card-body {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  .card-img {
+    height: 240px;
+    width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+}
+@media only screen and (max-width : 767px) {
+  .card-img {
+    height: 120px;
+  }
+  .card-img img {
+    width: 100%;
+    height: auto;
+
+    position: absolute;
+
+  }
+}
+
+.contact a{
+ color: #707ED6;
+ text-decoration: none;
+ font-weight: 600;
+
+ font-size: 1.25rem;
+ margin-right: 1rem;
 }
